@@ -1,3 +1,6 @@
+
+![pic3](https://user-images.githubusercontent.com/23652706/33016652-5c672b8a-ce15-11e7-9952-001f1180e958.JPG)
+
 Zonal Statistics
 load required libraries and packages
 library(rgdal)
