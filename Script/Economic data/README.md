@@ -61,7 +61,7 @@ ymax        : 83.55961<br/>
 
 res(r)=0.50<br/>
 r<br/>
-class       : RasterLayer<br/>  
+class       : RasterLayer<br/>
 dimensions  : 286, 720, 205920  (nrow, ncol, ncell)<br/> 
 resolution  : 0.5, 0.5  (x, y)<br/> 
 extent      : -179.9599, 180.0401, -59.44039, 83.55961  (xmin, xmax, ymin, ymax)<br/> 
