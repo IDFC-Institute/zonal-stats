@@ -1,6 +1,8 @@
 **Zonal Statistics for GDP**
 _(Global GDP Scenarios)_ 
-   
+
+![pic3](https://user-images.githubusercontent.com/23652706/33055234-4ec9d268-cea4-11e7-8757-aa48c8b4893f.JPG)
+ 
 Zonal statistics refers to the calculation of statistics on values of a raster within the zones of another dataset.  
 This project is a collaborative work of UXO India and IDFC. 
 In the following script sum of GDP for each town in India is calculated. 
@@ -126,6 +128,8 @@ Zone1<-readOGR("D:/IDFC work/raja/GDP/SHP","AllIndiaClass1_563_TownBoundaries201
  It has 10 fields
  
 plot(Zone1)
+
+![india_shp](https://user-images.githubusercontent.com/23652706/33055147-daef0368-cea3-11e7-8fba-0408a5f33d56.jpg)
 
 
 Calculate sum of GDP for towns of India
