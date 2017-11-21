@@ -8,6 +8,7 @@ This project is a collaborative work of UXO India and IDFC.
 
 In the following script sum of GDP for each town in India is calculated. 
 
+**Required Packages**
 
 library(rgdal) # To import raster data<br/>
 library(maptools) # To plot the data<br/>
@@ -39,13 +40,13 @@ coordinates(MyData)<-~px+py
 
 
 
-**Give projection system to the csv file**
+**Give projection system to the variable**
 
 crs.geo <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84")
 
 
 
-**Assign the projection system to the csv file**
+**Assign the projection system to the shapefile**
 
 proj4string(MyData) <- crs.geo
 
@@ -57,7 +58,7 @@ r <- raster()
 
 
 
-**Give the extent of raster as the extent of GDP**
+**Give the extent of raster dataset**
 
 extent(r) <- extent(MyData)
 
@@ -75,7 +76,7 @@ extent(r)
 
 
 
-**Give the pixel size as 0.5**
+**Assign the pixel size as 0.5**
 
 res(r)=0.50
 
