@@ -1,7 +1,7 @@
+![pic3](https://user-images.githubusercontent.com/23652706/33055234-4ec9d268-cea4-11e7-8757-aa48c8b4893f.JPG)
+
 **Zonal Statistics for GDP**
 _(Global GDP Scenarios)_ 
-
-![pic3](https://user-images.githubusercontent.com/23652706/33055234-4ec9d268-cea4-11e7-8757-aa48c8b4893f.JPG)
  
 Zonal statistics refers to the calculation of statistics on values of a raster within the zones of another dataset.  
 This project is a collaborative work of UXO India and IDFC. 
