@@ -28,46 +28,34 @@ library(rgeos) # Required for maptools<br/>
 
 **Read the GDP data of India in csv format**
 
-MyData <- read.csv(file="D:/IDFC work/raja/GDP/Dataset/SSP/CSV/gdp_ssp1.csv", 
-
+MyData <- read.csv(file="D:/IDFC work/raja/GDP/Dataset/SSP/CSV/gdp_ssp1.csv",<br/>
 header=TRUE, sep=",")
-
-
 
 **Read spatial coordinates from csv file to create a Spatial object**
 
 coordinates(MyData)<-~px+py
 
-
-
 **Give projection system to the variable**
 
 crs.geo <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84")
-
-
 
 **Assign the projection system to the shapefile**
 
 proj4string(MyData) <- crs.geo
 
-
-
 **Create an empty raster r**
 
 r <- raster()
-
-
 
 **Give the extent of raster dataset**
 
 extent(r) <- extent(MyData)<br/>
 extent(r)<br/>
 class       : Extent<br/> 
-xmin        : -179.9599<br/>  
+xmin        : -179.9599<br/>
 xmax        : 179.9352<br/>
-ymin        : -59.4568<br/>  
+ymin        : -59.4568<br/>
 ymax        : 83.55961<br/>
-
 
 **Assign the pixel size as 0.5**
 
