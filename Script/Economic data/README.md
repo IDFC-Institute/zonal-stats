@@ -9,31 +9,19 @@ This project is a collaborative work of UXO India and IDFC.
 In the following script sum of GDP for each town in India is calculated. 
 
 
-library(rgdal) # To import raster data
-
-library(maptools) # To plot the data
-
-library(proj4) # To reproject the shapefile
-
-library(raster) # Required for rgdal
-
-library(xtable) # To export data to html tables
-
-library(spatstat) # To analyse spatial point pattern
-
-library(tiff) # Required for rgdal
-
-library(sp) # Required for maptools
-
-library(doBy) # To calculate groupwise statistics
-
-library(data.table) # To modify columns
-
-library(modeest) # To calculate mode value for the zone
-
-library(foreign) # Required for maptools
-
-library(rgeos) # Required for maptools
+library(rgdal) # To import raster data<br/>
+library(maptools) # To plot the data<br/>
+library(proj4) # To reproject the shapefile<br/>
+library(raster) # Required for rgdal<br/>
+library(xtable) # To export data to html tables<br/>
+library(spatstat) # To analyse spatial point pattern<br/>
+library(tiff) # Required for rgdal<br/>
+library(sp) # Required for maptools<br/>
+library(doBy) # To calculate groupwise statistics<br/>
+library(data.table) # To modify columns<br/>
+library(modeest) # To calculate mode value for the zone<br/>
+library(foreign) # Required for maptools<br/>
+library(rgeos) # Required for maptools<br/>
 
 
 
