@@ -5,6 +5,7 @@ _(Global GDP Scenarios)_
  
 Zonal statistics refers to the calculation of statistics on values of a raster within the zones of another dataset.  
 This project is a collaborative work of UXO India and IDFC. 
+
 In the following script sum of GDP for each town in India is calculated. 
 
 
@@ -12,7 +13,7 @@ library(rgdal) # To import raster data
 
 library(maptools) # To plot the data
 
-library(proj4) # T reproject the shapefile
+library(proj4) # To reproject the shapefile
 
 library(raster) # Required for rgdal
 
@@ -35,6 +36,7 @@ library(foreign) # Required for maptools
 library(rgeos) # Required for maptools
 
 
+
 **Read the GDP data of India in csv format**
 
 MyData <- read.csv(file="D:/IDFC work/raja/GDP/Dataset/SSP/CSV/gdp_ssp1.csv", 
@@ -42,9 +44,11 @@ MyData <- read.csv(file="D:/IDFC work/raja/GDP/Dataset/SSP/CSV/gdp_ssp1.csv",
 header=TRUE, sep=",")
 
 
+
 **Read spatial coordinates from csv file to create a Spatial object**
 
 coordinates(MyData)<-~px+py
+
 
 
 **Give projection system to the csv file**
@@ -52,14 +56,17 @@ coordinates(MyData)<-~px+py
 crs.geo <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84")
 
 
+
 **Assign the projection system to the csv file**
 
 proj4string(MyData) <- crs.geo
 
 
+
 **Create an empty raster r**
 
 r <- raster()
+
 
 
 **Give the extent of raster as the extent of GDP**
@@ -79,6 +86,7 @@ extent(r)
  ymax        : 83.55961
 
 
+
 **Give the pixel size as 0.5**
 
 res(r)=0.50
@@ -94,6 +102,7 @@ resolution  : 0.5, 0.5  (x, y)
 extent      : -179.9599, 180.0401, -59.44039, 83.55961  (xmin, xmax, ymin, ymax)
  
 coord. ref. : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0
+
 
 
 **Creating a raster layer by summing up the GDP values in the pixel**
@@ -123,6 +132,7 @@ K <- rasterize(MyData, r, fun = sum, 'g1_2080')
 L <- rasterize(MyData, r, fun = sum, 'g1_2090')
 
 M <- rasterize(MyData, r, fun = sum, 'g1_2100')
+
 
 
 **Read the town boundaries shapefile of India**
@@ -169,6 +179,7 @@ out11 <- extract(K, Zone1, fun = sum, na.rm = T, small = T, df = T)
 out12 <- extract(L, Zone1, fun = sum, na.rm = T, small = T, df = T)
 
 out13 <- extract(M, Zone1, fun = sum, na.rm = T , small = T, df = T)
+
 
 
 **Write the output to csv file**
