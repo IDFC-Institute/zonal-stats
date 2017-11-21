@@ -1,6 +1,6 @@
-##Zonal Statistics for GDP
- #(Global GDP Scenarios)
-
+**Zonal Statistics for GDP**
+_(Global GDP Scenarios)_ 
+   
 Zonal statistics refers to the calculation of statistics on values of a raster within the zones of another dataset.  
 This project is a collaborative work of UXO India and IDFC. 
 In the following script sum of GDP for each town in India is calculated. 
@@ -87,23 +87,6 @@ Zone1<-readOGR("D:/IDFC work/raja/GDP/SHP","AllIndiaClass1_563_TownBoundaries201
  Source: "D:/IDFC work/raja/GDP/SHP", layer: "AllIndiaClass1_563_TownBoundaries2014_15_reproject"
  with 561 features
  It has 10 fields
- plot(Zone1)
+plot(Zone1)
 
-Calculate sum of GDP for towns of India
-out1 <- extract(A, Zone1, fun = sum, na.rm = T, small = T, df = T)
-out2 <- extract(B, Zone1, fun = sum, na.rm = T, small = T, df = T)
-out3 <- extract(C, Zone1, fun = sum, na.rm = T, small = T, df = T)
-out4 <- extract(D, Zone1, fun = sum, na.rm = T, small = T, df = T)
-out5 <- extract(E, Zone1, fun = sum, na.rm = T, small = T, df = T)
-out6 <- extract(F, Zone1, fun = sum, na.rm = T, small = T, df = T)
-out7 <- extract(G, Zone1, fun = sum, na.rm = T, small = T, df = T)
-out8 <- extract(H, Zone1, fun = sum, na.rm = T, small = T, df = T)
-out9 <- extract(I, Zone1, fun = sum, na.rm = T, small = T, df = T)
-out10 <- extract(J, Zone1, fun = sum, na.rm = T, small = T, df = T) 
-out11 <- extract(K, Zone1, fun = sum, na.rm = T, small = T, df = T)
-out12 <- extract(L, Zone1, fun = sum, na.rm = T, small = T, df = T)
-out13 <- extract(M, Zone1, fun = sum, na.rm = T , small = T, df = T)
-Write the output to csv file
-z1 <- Zone1@data # Assign the attributes of shapefile to z1
-output <- cbind(z1,out1,out2,out3,out4,out5,out6,out7,out8,out9,out10,out11,out12,out13) # Join the outputs to the attributes of shapefile
-write.csv(output,"D:/IDFC work/raja/GDP/Output/output.csv", na="NA") # Enter Output csv file name and path
+
