@@ -6,7 +6,7 @@ _(Global GDP Scenarios)_
 Zonal statistics refers to the calculation of statistics on values of a raster within the zones of another dataset.  
 This project is a collaborative work of UXO India and IDFC. 
 In the following script sum of GDP for each town in India is calculated. 
-Including Packages
+
 
 library(rgdal) # To import raster data
 
@@ -14,48 +14,55 @@ library(maptools) # To plot the data
 
 library(proj4) # T reproject the shapefile
 
-require(raster) # Required for rgdal
+library(raster) # Required for rgdal
 
 library(xtable) # To export data to html tables
 
-require(spatstat) # To analyse spatial point pattern
+library(spatstat) # To analyse spatial point pattern
 
-require(tiff) # Required for rgdal
+library(tiff) # Required for rgdal
 
-require(sp) # Required for maptools
+library(sp) # Required for maptools
 
-require(doBy) # To calculate groupwise statistics
+library(doBy) # To calculate groupwise statistics
 
-require(data.table) # To modify columns
+library(data.table) # To modify columns
 
-require(modeest) # To calculate mode value for the zone
+library(modeest) # To calculate mode value for the zone
 
-require(foreign) # Required for maptools
+library(foreign) # Required for maptools
 
-require(rgeos) # Required for maptools
-Read the GDP data of India in csv format
+library(rgeos) # Required for maptools
+
+
+**Read the GDP data of India in csv format**
 
 MyData <- read.csv(file="D:/IDFC work/raja/GDP/Dataset/SSP/CSV/gdp_ssp1.csv", 
 
 header=TRUE, sep=",")
 
-Read spatial coordinates from csv file to create a Spatial object
+
+**Read spatial coordinates from csv file to create a Spatial object**
 
 coordinates(MyData)<-~px+py
 
-Give projection system to the csv file
+
+**Give projection system to the csv file**
 
 crs.geo <- CRS("+proj=longlat +ellps=WGS84 +datum=WGS84")
 
-Assign the projection system to the csv file
+
+**Assign the projection system to the csv file**
 
 proj4string(MyData) <- crs.geo
 
-Create an empty raster r
+
+**Create an empty raster r**
 
 r <- raster()
 
-Give the extent of raster as the extent of GDP
+
+**Give the extent of raster as the extent of GDP**
 
 extent(r) <- extent(MyData)
 
@@ -70,24 +77,26 @@ extent(r)
  ymin        : -59.4568 
  
  ymax        : 83.55961
- 
-Give the pixel size as 0.5
+
+
+**Give the pixel size as 0.5**
 
 res(r)=0.50
 
 r
 
- class       : RasterLayer 
+class       : RasterLayer 
  
- dimensions  : 286, 720, 205920  (nrow, ncol, ncell)
+dimensions  : 286, 720, 205920  (nrow, ncol, ncell)
  
- resolution  : 0.5, 0.5  (x, y)
+resolution  : 0.5, 0.5  (x, y)
  
- extent      : -179.9599, 180.0401, -59.44039, 83.55961  (xmin, xmax, ymin, ymax)
+extent      : -179.9599, 180.0401, -59.44039, 83.55961  (xmin, xmax, ymin, ymax)
  
- coord. ref. : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0
- 
-Creating a raster layer by summing up the GDP values in the pixel
+coord. ref. : +proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0
+
+
+**Creating a raster layer by summing up the GDP values in the pixel**
 
 A <- rasterize(MyData, r, fun = sum,  'g1_1980')
 
@@ -115,24 +124,25 @@ L <- rasterize(MyData, r, fun = sum, 'g1_2090')
 
 M <- rasterize(MyData, r, fun = sum, 'g1_2100')
 
-Read the town boundaries shapefile of India
+
+**Read the town boundaries shapefile of India**
 
 Zone1<-readOGR("D:/IDFC work/raja/GDP/SHP","AllIndiaClass1_563_TownBoundaries2014_15_reproject") # To read shapesile (zone)
 
- OGR data source with driver: ESRI Shapefile 
+OGR data source with driver: ESRI Shapefile 
  
- Source: "D:/IDFC work/raja/GDP/SHP", layer: "AllIndiaClass1_563_TownBoundaries2014_15_reproject"
+Source: "D:/IDFC work/raja/GDP/SHP", layer: "AllIndiaClass1_563_TownBoundaries2014_15_reproject"
  
- with 561 features
+with 561 features
  
- It has 10 fields
+It has 10 fields
  
 plot(Zone1)
 
 ![india_shp](https://user-images.githubusercontent.com/23652706/33055147-daef0368-cea3-11e7-8fba-0408a5f33d56.jpg)
 
 
-Calculate sum of GDP for towns of India
+**Calculate sum of GDP for towns of India**
 
 out1 <- extract(A, Zone1, fun = sum, na.rm = T, small = T, df = T)
 
@@ -160,7 +170,8 @@ out12 <- extract(L, Zone1, fun = sum, na.rm = T, small = T, df = T)
 
 out13 <- extract(M, Zone1, fun = sum, na.rm = T , small = T, df = T)
 
-Write the output to csv file
+
+**Write the output to csv file**
 
 z1 <- Zone1@data # Assign the attributes of shapefile to z1
 
