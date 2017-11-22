@@ -199,6 +199,7 @@ Zonal_Stat_VIIRS <- function(xB,yB) # Define function<br/>
   }<br/>
 
 **call function for DMSP OLS Original**
+
 ptm <- proc.time()<br/>
 NRfileR <- list.files(getwd(), pattern="NR.*.tif$", full.names=FALSE) # Read list of Raster<br/> 
 for(m in 1:length(NRfileR)) # Flow control for all the non radiance data<br/>
