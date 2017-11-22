@@ -10,18 +10,18 @@ In the following example the settlement of each state in India is calculated
 
 **Required Packages**
 
-library(rgdal) # To import raster data
-library(maptools) # To plot the data
-library(proj4) # To reproject raster
-library(xtable) # To export data to html tables
-library (raster) # Required for rgdal
-library (rgeos) # Required for maptools
-library (spatstat) # Analysing spatial point patterns 
-library (tiff) #Read TIFF images and required for rgdal 
-library (sp)#Required for maptools 
-library (data.table) # Modifying columns
-library (modeest) #To calculate mode value for the zone 
-library (foreign) # Required for maptools
+library(rgdal) # To import raster data<br>
+library(maptools) # To plot the data<br>
+library(proj4) # To reproject raster<br>
+library(xtable) # To export data to html tables<br>
+library (raster) # Required for rgdal<br>
+library (rgeos) # Required for maptools<br>
+library (spatstat) # Analysing spatial point patterns <br>
+library (tiff) #Read TIFF images and required for rgdal <br>
+library (sp)#Required for maptools <br>
+library (data.table) # Modifying columns<br>
+library (modeest) #To calculate mode value for the zone <br>
+library (foreign) # Required for maptools<br>
 
 **Setting the memory limit**
 
@@ -81,4 +81,5 @@ min values	: Andaman & Nicobar Island,	0,	State,	109.3623,   105,   2,	4, 0,	0,	
 max values	:	West Bengal,	35, Union Territory, 342592.8684, 343863, 67215, 15404, 10709,	0,	3<br/>					
 
 **Write the output to csv file**
-write.csv(M,"D:/K/New folder/R Markdown/Input/GHSL settlement/2015_ZS_Built_up.csv", n a="NA")<br/>
+
+write.csv(M,"D:/K/New folder/R Markdown/Input/GHSL settlement/2015_ZS_Built_up.csv", n a="NA")
