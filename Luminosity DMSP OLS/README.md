@@ -399,7 +399,7 @@ colnames(ESK) <-<br/> c("System_Gen_UID","Census_Code","State_Name","State_Censu
 
 **Write output to the csv file**
 
-write.csv(ESK,"D:/IDFC work/Bulk Zonal Stat Calculation/INPUT/R_Script_Directory/29_admin_zs.csv", na="NA") # Enter Output csv file name and path<br/>
+write.csv(ESK,"D:/IDFC work/Bulk Zonal Stat Calculation/INPUT/R_Script_Directory/Dist_zs.csv", na="NA") # Enter Output csv file name and path<br/>
 
  
  
