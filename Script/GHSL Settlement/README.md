@@ -30,7 +30,7 @@ memory.limit(size = 100000)<br/>
 
 **To read shapefile and assign to a variable zone**
 
-Zone<-readOGR("D:/K/New folder/R Markdown/Input/SHP","State") # To read shapesile (zon e)<br/>
+Zone<-readOGR("D:/K/New folder/R Markdown/Input/SHP","State") # To read shapesile (zone)<br/>
 plot(Zone)<br/>
 
 ![india_state](https://user-images.githubusercontent.com/23652706/33067450-3037e792-ced4-11e7-8518-9f29a5426c54.jpg)
@@ -47,7 +47,9 @@ plot(Lumin)<br/>
 Zonal_Stat <- function(x,y) # Function declaration and signature<br/>
 {<br/>
 k = x@crs #Assigning the raster projection to K<br/>
-y = spTransform(y,k) #Reproject the vector to raster projection A<-extract(x,y) # Extract raster data zone-wise<br/> R<-array(0,dim=c(length(A),6)) # Create empty array<br/>
+y = spTransform(y,k) #Reproject the vector to raster projection <br/>
+A<-extract(x,y) # Extract raster data zone-wise<br/> 
+R<-array(0,dim=c(length(A),6)) # Create empty array<br/>
 for (i in 1:length(A)) # Create for loop to find the zonal statistics<br/>
 {<br/>
 temp=A[[i]] #Get zone-wise data in temperary memory<br/> 
@@ -57,12 +59,13 @@ SRR2<-length(temp[temp==2]) #Assigning the length of class 2 of raster layer to 
 SRR3<-length(temp[temp==3]) #Assigning the length of class 3 of raster layer to SRR3<br/> 
 R[i,2]= SRR1#Assign the SRR1 to column 2 of array R<br/>
 R[i,3]= SRR2 #Assign the SRR2 to column 3 of array<br/>
-R R[i,4]= SRR3 #Assign the SRR3 to column 4 of array<br/> 
-R R[i,5]=min(temp) # Find minimum of that zone<br/> 
+R[i,4]= SRR3 #Assign the SRR3 to column 4 of array<br/> 
+R[i,5]=min(temp) # Find minimum of that zone<br/> 
 R[i,6]=max(temp) # Find maximum of that zone<br/>
 rm(temp) # remove temparary variable<br/>
 }<br/>
-colnames(R) <- c("Count","BAS","LDC","HDC","Min","Max") # Change column header z<-cbind(y,R) # Bind data with shape file<br/>
+colnames(R) <- c("Count","BAS","LDC","HDC","Min","Max") # Change column header <br/>
+z<-cbind(y,R) # Bind data with shape file<br/>
 return(z)<br/>
 }<br/>
 
@@ -82,4 +85,4 @@ max values	:	West Bengal,	35, Union Territory, 342592.8684, 343863, 67215, 15404
 
 **Write the output to csv file**
 
-write.csv(M,"D:/K/New folder/R Markdown/Input/GHSL settlement/2015_ZS_Built_up.csv", n a="NA")
+write.csv(M,"D:/K/New folder/R Markdown/Input/GHSL settlement/2015_ZS_Built_up.csv", na="NA")
