@@ -1,6 +1,6 @@
 ![uxo_idfc_logo](https://user-images.githubusercontent.com/23652706/33058226-92f00448-ceb4-11e7-9997-7e0940f5ab1a.jpg)
 
-**Zonal Statistics for DMSP OLS Datasets**
+**Zonal Statistics for Nighttime-Light data**
 
 Zonal statistics refers to the calculation of statistics on values of a raster within the zones of another dataset<br/>
 
