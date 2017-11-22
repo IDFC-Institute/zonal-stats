@@ -28,11 +28,11 @@ library (foreign) # Required for maptools<br/>
 memory.size(100000)<br/>
 [1] 1e+05<br/>
 
-**Set working directory i.e giving the path of input files**
+**Set working directory i.e giving the path for input files**
 
 setwd("D:/IDFC work/Bulk Zonal Stat Calculation/INPUT/R_Script_Directory") # To set directory<br/>
 
-**Non Radiance Zonal Stat Calculation Function**
+**DMSP OLS original - Zonal Stat Calculation Function**
 
 Zonal_Stat_NR <- function(x,y) # Define function<br/>
 
@@ -73,7 +73,7 @@ BQ=paste(substr(names(x),(stri_length(names(x))-4),(stri_length(names(x)))), y[[
   return(z)<br/>
 }<br/>
 
-**Non Radiance Deblurr Zonal Statistics Calculation Function**
+**DMSP OLS Deblurred - Zonal Statistics Calculation Function**
 
 Zonal_Stat_NRD <- function(xA,yA) # Define function<br/>
 
@@ -115,7 +115,7 @@ Zonal_Stat_NRD <- function(xA,yA) # Define function<br/>
   return(zA)<br/> 
 }<br/>
 
-**Radiance Zonal Statistics Calculation Function**
+**DMSP OLS Radiance - Zonal Statistics Calculation Function**
 
 Zonal_Stat_Rad <- function(xR,yR) # Define function<br/>
 
@@ -157,7 +157,7 @@ Zonal_Stat_Rad <- function(xR,yR) # Define function<br/>
   return(zR)<br/>
   }<br/>
 
-**VIIRS Zonal Statistics Calculation Function**
+**VIIRS - Zonal Statistics Calculation Function**
 
 Zonal_Stat_VIIRS <- function(xB,yB) # Define function<br/>
 
@@ -198,7 +198,7 @@ Zonal_Stat_VIIRS <- function(xB,yB) # Define function<br/>
   return(zB)<br/>
   }<br/>
 
-**To Calculate Zonal Statistics for DMSP OLS Original Data**
+**call function for DMSP OLS Original**
 ptm <- proc.time()<br/>
 NRfileR <- list.files(getwd(), pattern="NR.*.tif$", full.names=FALSE) # Read list of Raster<br/> 
 for(m in 1:length(NRfileR)) # Flow control for all the non radiance data<br/>
@@ -221,7 +221,7 @@ proc.time() - ptm<br/>
 user  system elapsed<br/> 
 387.72    2.64  391.08<br/>
 
-**To Calculate Zonal Statistics for DMSP OLS Deblurred Data**
+**call function for DMSP OLS Deblurred**
 
 ptm <- proc.time()<br/>
 NRDfileR <- list.files(getwd(), pattern="DBR.*.tif$", full.names=FALSE) # Read list of Raster<br/>
@@ -245,7 +245,7 @@ proc.time() - ptm<br/>
 user  system elapsed<br/> 
 703.93  103.55  808.82<br/>
 
-**To Calculate Zonal Statistics for DMSP OLS Radiance Data**
+**call function for DMSP OLS Radiance**
 
 ptm <- proc.time()<br/>
 RfileR <- list.files(getwd(), pattern="RAD.*.tif$", full.names=FALSE) # Read list of Raster<br/>
@@ -270,7 +270,7 @@ proc.time() - ptm<br/>
  user  system elapsed<br/>
 92.77    1.27   94.34<br/>
 
-**To Calculate Zonal Statistics for VIIRS Data**
+**call function for VIIRS Data**
 
 ptm <- proc.time()<br/>
 VfileR <- list.files(getwd(), pattern="NPP.*.tif$", full.names=FALSE) # Read list of Raster<br/>
@@ -323,9 +323,9 @@ colnames(CS) <-<br/> c("BQ","Census_Code","State_Name","State_Census_Cd","Distri
 
 levels(CS$Year)<-unique(c(levels(CS$Year),levels(CS$Year1)))<br/> 
 levels(CS$Year)<br/>
-##  [1] "1992" "1993" "1994" "1995" "1996" "1997" "1998" "1999" "2000" "2001"<br/>
-## [11] "2002" "2003" "2004" "2005" "2006" "2007" "2008" "2009" "2010" "2011"<br/>
-## [21] "2012" "2013"<br/>
+  [1] "1992" "1993" "1994" "1995" "1996" "1997" "1998" "1999" "2000" "2001"<br/>
+ [11] "2002" "2003" "2004" "2005" "2006" "2007" "2008" "2009" "2010" "2011"<br/>
+ [21] "2012" "2013"<br/>
 
 for(d in 1:lengths(CS[1], use.names = FALSE)) # Run the loop from 1 to length(CS)<br/>
 {<br/>
@@ -361,9 +361,9 @@ colnames(ES) <-<br/> c("BQ","Census_Code","State_Name","State_Census_Cd","Distri
 
 levels(ES$Year)<-unique(c(levels(ES$Year),levels(ES$Year1)))<br/> 
 levels(ES$Year)<br/>
-##  [1] "1992" "1993" "1994" "1995" "1996" "1997" "1998" "1999" "2000" "2001"<br/>
-## [11] "2002" "2003" "2004" "2005" "2006" "2007" "2008" "2009" "2010" "2011"<br/>
-## [21] "2012" "2013" "2014" "2015" "2016"<br/>
+  [1] "1992" "1993" "1994" "1995" "1996" "1997" "1998" "1999" "2000" "2001"<br/>
+ [11] "2002" "2003" "2004" "2005" "2006" "2007" "2008" "2009" "2010" "2011"<br/>
+ [21] "2012" "2013" "2014" "2015" "2016"<br/>
 
 for(z in 1:lengths(ES[1], use.names = FALSE))  # Run the loop from 1 to length(ES)<br/>
 {<br/>
